@@ -1,0 +1,546 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+:root{
+    --black: #000000;
+    --green: #71d6a6;
+    --cambridgeblue: #8BA691;
+    --teal:  rgb(93, 128, 127);
+    --lightblue: rgb(39, 60, 80);
+    --darkblue: rgb(12, 19, 46);
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+img{
+    max-width: 100%;
+    height:auto;
+}
+
+body{
+    background-color: rgb(21, 21, 21);
+    
+}
+
+h1{
+    font-size: 5rem;
+    color: white;
+    
+    
+}
+
+
+
+h2{
+    color: gray;
+    font-size: 4.5rem;
+}
+
+p{
+    font-size: 1.5rem;
+    
+    color: var(--green);
+}
+
+    .hello{
+        color:white;
+        font-size: 5rem;
+    }
+
+
+.wrapper{
+    
+
+    width: 100vw;
+    font-family:"Space Grotesk";
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-rows: auto 1fr;
+}
+
+header{
+    background-color: transparent;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+    width: 100%;
+    
+    max-width:1440px;
+    font-family: "Space Grotesk";
+}
+
+.headerLogo{
+    object-fit: contain;
+}
+
+.logoContainer{
+   
+    display: flex;
+    color:white;
+    font-weight:700;
+    align-items:center;
+}
+
+.links{
+    
+    display:flex;
+    flex-direction: row;
+    gap: 2.5rem;
+    color:rgb(93, 128, 127);
+}
+
+.links > a{
+    cursor: pointer;
+    color:white;
+}
+
+.test{
+    width: 100%;
+}
+.profile-pic{
+
+}
+
+.main-content{
+    
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+   
+}
+
+.bio{
+  font-size: 18px;
+  color: gray;
+}
+
+
+
+.description-content{
+    gap: 3rem;
+
+}
+
+.description-content > h1{
+  line-height: 5rem;
+}
+
+
+.profile-container{
+    height: 100%;
+    display: grid;
+    align-items: center;
+    justify-items: end;
+   
+}
+
+.profile-container > img {
+    transform: scale(100%);
+    transition: transform .2s ease;
+}
+
+
+
+
+
+.skills{
+    border-top: 5px solid white;
+    border-bottom: 5px solid white;
+    padding: 5rem 0rem; 
+    display:grid;
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-items: center;
+}
+
+.skill{
+    display: grid;
+    cursor: pointer;
+    height: 300px;
+    width: 300px;
+    align-items: center;
+    justify-items: center;
+    transform: scale(100%);
+    transition: transform .2s ease;
+}
+
+
+.skill:hover{
+    transform: scale(120%);
+}
+
+.project{
+    padding: 5rem 0rem;
+    display: grid;
+    gap: 3rem;
+}
+
+.project > h1{
+    font-size: 3rem;
+    text-align: center;
+}
+
+.projects{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 3rem;
+}
+
+.projects > a {
+    text-decoration: none;
+}
+
+.challenge{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.challenge > h2{
+    font-size: 1.25rem;
+    position: relative;
+    display: inline;
+    
+}
+
+.challenge > h2::after{
+    position: absolute;
+    left:50%;
+    bottom: -5px;
+    content: '';
+    background-color: var(--green);
+    height: 2px;
+    width: 0;
+    transition: all .2s ease;
+}
+
+.challenge:hover > h2::after{
+    left:0;
+    width: 100%;
+}
+
+.challenge > img {
+    box-shadow: 0px 0px 0rem transparent;
+    border: 1px solid gray;
+    transition: all .2s ease-in-out;
+    transform: scale(100%);
+}
+.challenge:hover > img{
+    box-shadow: 0px 0px 2rem var(--green);
+    transform: scale(110%);
+}
+
+
+footer{
+    font-family: "Space Grotesk";
+    background-color: #444444;
+    color:white;
+    width: 100%;
+    display:grid;
+
+    padding: 2rem;
+}
+
+footer > p {
+  color:white;
+}
+footer > .contactMe{
+    color: white;
+    background-color: transparent;
+}
+
+.contactMe{
+    margin-left:auto;
+    margin-right: auto;
+    display: grid;
+    gap: 1rem;
+    
+    justify-items:center;
+    
+}
+
+.contactMe > div {
+  padding: 2rem 0;
+  display:flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 2rem;
+}
+.contactMe > div> h2{
+    color: white; 
+    font-size: 4rem;
+}
+
+.contactMe > div > p {
+  color:white;
+  font-size: 18px;
+  width: 80%;
+  
+}
+
+.contactMe > form{
+  width: 80%;
+  display:grid;
+  place-items: end;
+  padding: 2rem 0;
+  font-family: inherit;
+  row-gap: 1rem;
+  justify-self: end;
+}
+.contactMe > form > div{
+  width: 100%;
+  border-bottom: 2px solid white;
+  transition: border-bottom .2s ease;
+}
+.contactMe > form > div >  input{
+  position: relative;
+  width: 90%;
+  text-transform: uppercase;
+  outline:none;
+  color:white;
+  background-color: inherit;
+  border:none;
+  padding: 1rem;
+  font-family: inherit;
+  
+}
+
+.contactMe > form > textarea{
+ 
+    text-transform: uppercase;
+    outline:none;
+    color:white;
+    resize: none;
+    background-color: inherit;
+    border:none;
+    padding: 1rem;
+    border-bottom: 2px solid white;
+    width: 100%;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-bottom .2s ease;
+}
+
+.err{
+  border-bottom: 2px solid #e56a6a !important;
+}
+
+.sendBtn{
+  background: none;
+  border:2px solid white;
+  color:white;
+  padding: 12px;
+  font-family: inherit;
+  transition: all .2s ease;
+}
+
+.sendBtn:hover{
+  border:2px solid var(--green);
+  cursor: pointer;
+  color: var(--green);
+}
+
+.sendBtn.hide{
+  display:none;
+}
+
+.contactMe > ul{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.contactMe > ul > li{
+    list-style: none;
+}
+
+.contactdetails{
+  margin-left: auto;
+  margin-right: auto;
+  border-top: 3px solid white;
+  max-width: 1110px;
+  width:100%;
+  padding: 2rem 0;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.contactdetails > p {
+  color:white !important;
+}
+
+.contactdetails > .links{
+  justify-self: end;
+}
+
+.messageSent{
+  color: var(--green);
+  display:none;
+}
+.messageSent.show{
+  display:block;
+}
+.downloadResume{
+    cursor: pointer;
+    color:white;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 1rem;
+    transition: all .2s;
+}
+
+.downloadResume:hover{
+    background-color: var(--green);
+    border: 1px solid var(--green);
+}
+
+@media screen and (min-width: 280px) {
+
+    header{
+      padding: 2rem;
+    }
+    .wrapper{
+        padding: 1rem 1rem;
+    }
+
+    .main-content{
+        grid-template-columns: 1fr;
+        width:100%;
+        height: 100%;
+        gap: 2rem;
+        padding: 2rem 0px;
+    }
+
+    .main-content > .profile-container{
+        grid-row: 1/2;
+        justify-content:center;
+    }
+
+    .main-content > .description-content{
+        text-align: center;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .skills{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .skill{
+        height:auto;
+        width: auto;
+    }
+    .projects{
+        grid-template-columns: 1fr;
+        align-items: start;
+    }
+
+    footer{
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .contactMe{
+        flex-direction: column;
+    }
+
+    .contactMe > ul{
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    #root{
+      display:grid;
+      place-items:center;
+    }
+
+    .test{
+      width:auto;
+    }
+    header{
+      max-width: 1110px;
+    }
+    .wrapper{
+        padding:0;
+        max-width: 1110px;
+    }
+
+
+    .main-content{
+        grid-template-columns: 1fr 1fr;
+        padding: 0px;
+
+        gap: 0px;
+    }
+
+    .main-content > .description-content{
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        justify-content: center;
+        align-items: start;
+        text-align: start;
+    }
+
+    .description-content > h1 >span{
+      display:block;
+      border-bottom: 5px solid var(--green);
+    }
+
+    .main-content > .profile-container{
+        grid-row: auto;
+        align-items:end;
+    }
+
+    .skills{
+        grid-template-columns: repeat(3, 1fr);
+        
+    }
+
+    .skill{
+        height:180px;
+        width: 180px;
+    }
+
+    .projects{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .challenge:nth-child(13) {
+        grid-column: 2/3;
+    }
+
+    footer{
+      
+        flex-direction: row;
+        gap: 2rem;
+    }
+    
+    .contactMe{
+        max-width: 1110px;
+        
+        flex-direction: row;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contactMe > ul{
+        flex-direction: row;
+    }
+
+}
