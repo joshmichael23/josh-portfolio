@@ -92,10 +92,13 @@ function App() {
           <div className='logoContainer'>
             josholea
           </div>
+          
           <div className='links'>
-              <a target="_blank" href="https://www.linkedin.com/in/josh-michael-olea/"><i className='fa-xl fa-brands fa-linkedin' /></a>
-              <a target="_blank" href="https://github.com/joshmichael23"><i className='fa-xl fa-brands fa-github'></i></a>
-              <a target="_blank" href="https://www.frontendmentor.io/profile/joshmichael23"><i className="fa-xl fa-solid fa-code"></i></a>
+
+            <a href="#aboutMe">About</a>
+            <a href="#project">Projects</a>
+            <a href="#contact">Contact</a>
+            
           </div>
         </header>
         <main className="test">
@@ -103,30 +106,34 @@ function App() {
           <div className="wrapper">
 
             
-            <article className='main-content'>
+            <article id="mainContent" className='main-content'>
               <div className='description-content'>
                 
               
                   
-                <h1> Hello I'm <span>Josh Olea.</span></h1>
-                
-                <p className="bio">I'm a web developer from Naga City, Philippines.  I create my projects using HTML, CSS, and JavaScript. I've been studying and learning React.JS, Vue.JS lately to expand my knowledge in front-end development. I try to practice my skills in Frontend Mentor by completing their challenges. Check my projects below.</p>
-
-                <a className="downloadResume" target="_blank" rel="noopener noreferrer" href="/Resume.pdf" id='btnDownloadResume'>Download Resume</a>
+                <h1> Hello There! 👋</h1> 
+                <div className='typewriter'>
+                  <p>I'm</p><h2>Josh Olea</h2>
+                </div>
+                <h2>Frontend Developer</h2>
+                <div className='links'>
+                    <a target="_blank" href="https://www.linkedin.com/in/josh-michael-olea/"><i className='fa-xl fa-brands fa-linkedin' /></a>
+                    <a target="_blank" href="https://github.com/joshmichael23"><i className='fa-xl fa-brands fa-github'></i></a>
+                    <a target="_blank" href="https://www.frontendmentor.io/profile/joshmichael23"><i className="fa-xl fa-solid fa-code"></i></a>
+                </div>
+             
               </div>
               <div className='profile-container'>
                 <img className="profile-pic" alt="Josh Michael's Picture" src={'/picture.png'} />
               </div>
             </article>
 
-
-            <section className='skills'>
+            <section id="aboutMe" className='about-me'>
+              <h1>About Me</h1>
+              <p className="bio">I'm a web developer from Naga City, Philippines.  I create my projects using HTML, CSS, and JavaScript. I've been studying and learning React.JS, Vue.JS lately to expand my knowledge in front-end development. I try to practice my skills in Frontend Mentor by completing their challenges. </p>
+              <section className='skills'>
               <a href="https://www.javascript.com" className="skill js">
                 <img src={'./logos/JavaScript-logo.png'} alt="Javascript Logo" />
-              </a>
-
-              <a href="https://html.com" className="skill html">
-                <img src={'./logos/html.png'} alt="HTML Logo" />
               </a>
 
               <a href="https://getbootstrap.com" className="skill bootstrap">
@@ -157,8 +164,9 @@ function App() {
                 <img src={'./logos/vite.png'} alt="Vite Logo" />
               </a>
             </section>
+            </section>
 
-            <section className='project'>
+            <section id="project" className='project'>
               <h1>Frontend Mentor Projects</h1>
               <div className='projects'>
                 
@@ -241,7 +249,7 @@ function App() {
           <footer>
 
 
-          <div className='contactMe'>
+          <div className='contactMe' id="contact">
               <div>
                 <h2>Contact me</h2>
                 <p>Please fill in the form, and I’ll get back to you as soon as possible. </p>
@@ -266,9 +274,10 @@ function App() {
           <div className="contactdetails">
             <p>josholea</p>
             <div className='links'>
-                <a target="_blank" href="https://www.linkedin.com/in/josh-michael-olea/"><i className='fa-xl fa-brands fa-linkedin' /></a>
-                <a target="_blank" href="https://github.com/joshmichael23"><i className='fa-xl fa-brands fa-github'></i></a>
-                <a target="_blank" href="https://www.frontendmentor.io/profile/joshmichael23"><i className="fa-xl fa-solid fa-code"></i></a>
+              <a href="#mainContent">Me</a>
+              <a href="#aboutMe">About</a>
+              <a href="#project">Projects</a>
+           
             </div>
           </div>
           </footer>
