@@ -1,5 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+@keyframes typing {
+    from { 
+        width: 0; 
+    }
+    to { 
+        width:100%; 
+    }
+}
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+
+    50% { border-color: orange }
+}
+
+@keyframes slide-up {
+    from{
+        transform: translateY(100svh);
+    }
+    to { 
+        transform: translateY(0);
+    }
+}
+
+@keyframes opacity {
+    from{
+        opacity: 0%;
+    }
+    to { 
+        opacity: 100%;
+    }
+}
 
 :root{
     --black: #000000;
@@ -8,6 +39,11 @@
     --teal:  rgb(93, 128, 127);
     --lightblue: rgb(39, 60, 80);
     --darkblue: rgb(12, 19, 46);
+}
+
+html{
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
 }
 *{
   margin:0;
@@ -74,6 +110,8 @@ header{
     
     max-width:1440px;
     font-family: "Space Grotesk";
+
+    scroll-snap-align: start;
 }
 
 .headerLogo{
@@ -99,6 +137,7 @@ header{
 .links > a{
     cursor: pointer;
     color:white;
+    text-decoration: none;
 }
 
 .test{
@@ -109,15 +148,16 @@ header{
 }
 
 .main-content{
+    height: 90svh;
     
     display:grid;
     grid-template-columns: 1fr 1fr;
-   
+   overflow-y: hidden;
 }
 
 .bio{
   font-size: 18px;
-  color: gray;
+  color: white;
 }
 
 
@@ -147,15 +187,22 @@ header{
 
 
 
+.about-me{
+    height: 100svh;
+    scroll-snap-align: start;
+    padding-block: 5rem;
+}
 
+.about-me > h1{
+    font-size: 4.5rem;
+}
 
 .skills{
-    border-top: 5px solid white;
-    border-bottom: 5px solid white;
+
     padding: 5rem 0rem; 
     display:grid;
     width: 100%;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 5rem;
     flex-wrap: wrap;
     align-items: center;
@@ -182,11 +229,12 @@ header{
     padding: 5rem 0rem;
     display: grid;
     gap: 3rem;
+    scroll-snap-align: start;
 }
 
 .project > h1{
-    font-size: 3rem;
-    text-align: center;
+    font-size: 4rem;
+    text-align: start;
 }
 
 .projects{
@@ -245,6 +293,7 @@ header{
 
 
 footer{
+    scroll-snap-align: end;
     font-family: "Space Grotesk";
     background-color: #444444;
     color:white;
@@ -420,7 +469,7 @@ footer > .contactMe{
 
     .main-content{
         grid-template-columns: 1fr;
-        width:100%;
+        width:auto;
         height: 100%;
         gap: 2rem;
         padding: 2rem 0px;
@@ -438,8 +487,19 @@ footer > .contactMe{
         justify-items: center;
     }
 
+    .description-content >h1{
+        font-size: 2rem;
+    }
+
     .skills{
         grid-template-columns: 1fr 1fr;
+    }
+
+    .about-me > h1{
+        text-align: center;
+    }
+    .bio{
+        text-align: center;
     }
 
     .skill{
@@ -451,6 +511,13 @@ footer > .contactMe{
         align-items: start;
     }
 
+    .project > h1{
+        text-align: center;
+    }
+
+    .about-me{
+        height: auto;
+    }
     footer{
         flex-direction: column;
         gap: 2rem;
@@ -462,6 +529,44 @@ footer > .contactMe{
     .contactMe > ul{
         flex-direction: column;
     }
+
+    
+    .typewriter{
+        display: flex;
+     }
+ 
+     .typewriter > p {
+         font-size: 2rem;
+         color:white;
+         font-weight: bold;
+         margin-right: 1rem;
+     }
+ 
+     .typewriter > h2{
+         overflow: hidden; /* Ensures the content is not revealed until the animation */
+         border-right: .15em solid orange; /* The typwriter cursor */
+         white-space: nowrap; /* Keeps the content on a single line */
+         color: var(--green);
+         font-size: 2rem;
+         animation: 
+           typing 3.5s steps(22) forwards,
+           blink-caret .75s step-end infinite;
+     }
+ 
+     
+ 
+ 
+     .description-content > h2{
+         font-size: 2rem;
+     }
+ 
+     .main-content > .profile-container{
+         grid-row: auto;
+         align-items:center;
+         animation: 
+             slide-up 1s forwards,
+             opacity 2s forwards;
+     }
 }
 
 @media screen and (min-width: 1440px) {
@@ -485,7 +590,7 @@ footer > .contactMe{
     .main-content{
         grid-template-columns: 1fr 1fr;
         padding: 0px;
-
+        height: 95svh;
         gap: 0px;
     }
 
@@ -498,24 +603,36 @@ footer > .contactMe{
         text-align: start;
     }
 
-    .description-content > h1 >span{
-      display:block;
-      border-bottom: 5px solid var(--green);
+    .description-content > h1{
+        font-size: 4rem;
+        display: block;
     }
 
-    .main-content > .profile-container{
-        grid-row: auto;
-        align-items:end;
+    .description-content > h1 >span{
+     
+      /* border-bottom: 5px solid var(--green); */
     }
+
+
+
+    .typewriter > p{
+        font-size: 4rem;
+    }
+
+    .typewriter > h2{
+        font-size: 4rem;
+    }
+    
+    
 
     .skills{
-        grid-template-columns: repeat(3, 1fr);
-        
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        height: 80%;
     }
 
     .skill{
-        height:180px;
-        width: 180px;
+        /* height:180px;
+        width: 180px; */
     }
 
     .projects{
@@ -543,4 +660,14 @@ footer > .contactMe{
         flex-direction: row;
     }
 
+    .about-me > h1{
+        text-align: start;
+    }
+    .bio{
+        text-align: start;
+    }
+    
+    .project > h1{
+        text-align: start;
+    }
 }
