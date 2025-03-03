@@ -70,7 +70,7 @@ function App() {
 
       if (validateForm(form)) {
         emailjs
-          .sendForm('service_9fgrofd', 'template_up1bunt', form.current, {
+          .sendForm('service_9fgrofd', 'template_yev0a4v', form.current, {
             publicKey: 'sEJ6COwXwgoM3I87T',
           })
           .then(
