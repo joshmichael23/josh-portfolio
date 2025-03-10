@@ -232,6 +232,7 @@ header{
     display: grid;
     gap: 3rem;
     scroll-snap-align: start;
+    transition: all .2s ease;
 }
 
 .project > h1{
@@ -264,7 +265,7 @@ header{
     border-radius: 12px;
     height: 100%;
     color: white;
-    transition: all .2s ease;
+    transition: height .3s ease;
 }
 
 .challenge > img{

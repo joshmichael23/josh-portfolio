@@ -119,6 +119,9 @@ function App() {
       });
 
       document.getElementById('viewMoreFrontEnd').innerHTML = 'Show Less';
+
+      document.getElementById("project").scroll(0,0);
+
     }else{
       let elements = document.querySelectorAll('.challenge.shown');
    
@@ -128,6 +131,9 @@ function App() {
       });
 
       document.getElementById('viewMoreFrontEnd').innerHTML = 'Show More';
+
+
+      document.getElementById("project").scroll(0,0);
     }
 
     setHideFrontent(!hideFrontend)
@@ -245,7 +251,7 @@ function App() {
  
               </div>
 
-              <button id='viewMoreFrontEnd' onClick={() => hideFrontendBtn()}>View More</button>
+              <button id='viewMoreFrontEnd' onClick={() => hideFrontendBtn()}>Show More</button>
             </section>
 
              
