@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import emailjs from '@emailjs/browser';
@@ -6,7 +6,10 @@ import './App.css'
 
 function App() {
 
+  
 
+
+  const [feMentorData, setFeMentorData] = useState([]);
   const [count, setCount] = useState(0)
 
   function handleScroll() {
@@ -22,6 +25,7 @@ function App() {
   const [validMessage, setValidMessage] = useState(true);
   const [validName, setValidName] = useState(true);
   const [messageSent, setMessageSent] = useState(false);
+  const [hideFrontend, setHideFrontent] = useState(false);
 
 
   function validateEmailAdd(email){
@@ -85,6 +89,50 @@ function App() {
       }
   }
 
+  const fetchFrontendMentorProjs = async()=>{
+
+    const res = await fetch("https://backend.frontendmentor.io/rest/v2/learners/6569c7365a5c09af082db9e4/solutions", {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+      },
+    })
+
+    const data = await res.json()
+    setFeMentorData(data.data);
+  }
+   
+  useEffect(() => {
+    // fetch call used to be here
+    fetchFrontendMentorProjs();
+
+  }, [])
+
+
+  function hideFrontendBtn(){
+    if(!hideFrontend){
+      let elements = document.querySelectorAll('.challenge.hidden');
+   
+
+      elements && elements.forEach(element => {
+        element.className='challenge shown'
+      });
+
+      document.getElementById('viewMoreFrontEnd').innerHTML = 'Show Less';
+    }else{
+      let elements = document.querySelectorAll('.challenge.shown');
+   
+
+      elements && elements.forEach(element => {
+        element.className='challenge hidden'
+      });
+
+      document.getElementById('viewMoreFrontEnd').innerHTML = 'Show More';
+    }
+
+    setHideFrontent(!hideFrontend)
+  }
+
 
   return (
     <>
@@ -110,7 +158,7 @@ function App() {
               <div className='description-content'>
                 
               
-                  
+                
                 <h1> Hello There! 👋</h1> 
                 <div className='typewriter'>
                   <p>I'm</p><h2>Josh Olea</h2>
@@ -167,80 +215,37 @@ function App() {
             </section>
 
             <section id="project" className='project'>
-              <h1>Frontend Mentor Projects</h1>
+              <h1>Projects</h1>
+
+              <h2 className='subproject'>Frontend Mentor</h2>
               <div className='projects'>
                 
-                <a href="https://ecomm-psi-seven.vercel.app" className="challenge">
-                <img src={'./screenshots/ecommerce.png'} alt="Project's Screenshot"/>
-                  <h2>E-commerce</h2>
-                </a>
 
-                <a href="https://comments-brown-five.vercel.app" className='challenge'>
-                  <img src={'./screenshots/interactive-comments.png'} alt="Project's Screenshot"/>
-                  <h2>Interactive Comments</h2>
-                </a>
+                {
+                  feMentorData.map((item, index) => (
+                    <div key={item.id}  className={'challenge ' + (index > 7 ? 'hidden': '')} >
+                      <img src={item.screenshot} alt={item.title}/>
+                        <h2>{item.title}</h2>
+                        <div className='challenge-links'>
+                          <a href={item.liveURL} target='_blank'><i className='fa fa-link'></i></a>
+                          <a href={item.repoURL} target='_blank'><i className='fa fa-code'></i></a>
+                          
+                        </div>
+                        <div className='challenge-stats'> 
+                          <span><i className='fa fa-thumbs-up'></i>{item.likes.length}</span>
+                          <span><i className='fa fa-comment'></i>{item.commentCount}</span>
+                        </div>
+                    </div>
+                  ))
+                }
 
-                <a href="https://roomhomepage-jade.vercel.app" className='challenge'>
-                  <img src={'./screenshots/room-homepage.png'} alt="Project's Screenshot"/>
-                  <h2>Room Landing Page</h2>
-                </a>
+                
 
-                <a href="https://calculator-hazel-rho.vercel.app" className='challenge'>
-                  <img src={'./screenshots/calculator.png'} alt="Project's Screenshot"/>
-                  <h2>Calculator</h2>
-                </a>
 
-                <a href="https://advice-generator-app-main-seven-theta.vercel.app" className='challenge'><img src={'./screenshots/advice-generator.png'} alt="Project's Screenshot"/>
-                  <h2>Advice Generator</h2>
-                </a>
-
-                <a href="https://age-calculator-app-weld.vercel.app" className="challenge">
-                  <img src={'./screenshots/age-calculator.png'} alt="Project's Screenshot"/>
-                  <h2>Age Calculator</h2>
-                </a>
-
-                <a href="https://expenses-chart-component-main-opal.vercel.app" 
-                className="challenge">
-                  <img src={'./screenshots/expenses-chart.png'} alt="Project's Screenshot"/>
-                  <h2>Expenses Chart</h2>
-                </a>
-
-                <a href="https://interactive-rating-component-main-ten-livid.vercel.app" className="challenge">
-                <img src={'./screenshots/interactive rating.png'} alt="Project's Screenshot"/>
-                  <h2>Interactive Rating</h2>
-                  
-                </a>
-
-                <a href="https://loopstudios-flame-phi.vercel.app" className="challenge">
-                <img src={'./screenshots/loopstudios.png'} alt="Project's Screenshot"/>
-                  <h2>Loopstudios</h2>
-                </a>
-
-                <a href="https://order-summary-component-main.vercel.app" className="challenge">
-                <img src={'./screenshots/order-summary.png'} alt="Project's Screenshot"/>
-                  <h2>Order Summary</h2>
-                </a>
-
-                <a href="https://pricing-component-omega-eight.vercel.app" className="challenge">
-                <img src={'./screenshots/pricing-component.png'} alt="Project's Screenshot"/>
-                  <h2>Pricing Component</h2>
-                </a>
-
-                <a href="https://social-media-switcher-alpha.vercel.app" className="challenge">
-                <img src={'./screenshots/social-dark-mode.png'} alt="Project's Screenshot"/>
-                  <h2>Dashboard w/ Dark Mode</h2>
-                </a>
-
-                <a href="https://time-tracking-teal.vercel.app" className="challenge">
-                <img src={'./screenshots/time-tracking.png'} alt="Project's Screenshot"/>
-                  <h2>Time Tracking App</h2>
-                </a>
-
-                <a href="https://tip-calculator-app-main-umber-alpha.vercel.app" className="challenge">
-                <img src={'./screenshots/tip-calculator.png'} alt="Project's Screenshot"/>
-                  <h2>Tip Calculator</h2>
-                </a>
+ 
               </div>
+
+              <button id='viewMoreFrontEnd' onClick={() => hideFrontendBtn()}>View More</button>
             </section>
 
              
