@@ -2,14 +2,11 @@ import { useState, useRef, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import emailjs from '@emailjs/browser';
+import FrontendData from './components/FrontendData.js';
 import './App.css'
 
 function App() {
 
-  
-
-
-  const [feMentorData, setFeMentorData] = useState([]);
   const [count, setCount] = useState(0)
 
   function handleScroll() {
@@ -89,25 +86,6 @@ function App() {
       }
   }
 
-  const fetchFrontendMentorProjs = async()=>{
-
-    const res = await fetch('/src/data.json', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-    })
-
-    const data = await res.json()
-    setFeMentorData(data.data);
-  }
-   
-  useEffect(() => {
-    // fetch call used to be here
-    fetchFrontendMentorProjs();
-
-  }, [])
 
 
   function hideFrontendBtn(){
@@ -157,7 +135,7 @@ function App() {
           </div>
         </header>
         <main className="test">
-          
+       
           <div className="wrapper">
 
             
@@ -170,7 +148,7 @@ function App() {
                 <div className='typewriter'>
                   <p>I'm</p><h2>Josh Olea</h2>
                 </div>
-                <h2>Frontend Developer</h2>
+                <h2>Frontend Developer {console.log()}</h2>
                 <div className='links'>
                     <a target="_blank" href="https://www.linkedin.com/in/josh-michael-olea/"><i className='fa-xl fa-brands fa-linkedin' /></a>
                     <a target="_blank" href="https://github.com/joshmichael23"><i className='fa-xl fa-brands fa-github'></i></a>
@@ -229,7 +207,7 @@ function App() {
                 
 
                 {
-                  feMentorData.map((item, index) => (
+                  FrontendData[0].data.map((item, index) => (
                     <div key={item.id}  className={'challenge ' + (index > 7 ? 'hidden': '')} >
                       <img src={item.screenshot} alt={item.title}/>
                         <h2>{item.title}</h2>
