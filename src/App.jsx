@@ -91,15 +91,11 @@ function App() {
 
   const fetchFrontendMentorProjs = async()=>{
 
-    const res = await fetch("https://cors-anywhere.herokuapp.com/https://backend.frontendmentor.io/rest/v2/learners/6569c7365a5c09af082db9e4/solutions", {
+    const res = await fetch('./src/data.json', {
       method: 'GET',
       headers: {
-        "Access-Control-Allow-Origin": "*",
-        'Accept': 'application/json',
-        'Access-Control-Allow-Credentials': true,
-        'Access-Control-Allow-Methods': 'GET,OPTIONS,PATCH,DELETE,POST,PUT',
-        'Access-Control-Allow-Headers': 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-        
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       },
     })
 
