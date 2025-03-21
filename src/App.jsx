@@ -91,7 +91,7 @@ function App() {
 
   const fetchFrontendMentorProjs = async()=>{
 
-    const res = await fetch('./src/data.json', {
+    const res = await fetch('/src/data.json', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
